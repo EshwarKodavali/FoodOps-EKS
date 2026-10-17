@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foodops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foodops
+  template:
+    metadata:
+      labels:
+        app: foodops
+    spec:
+      containers:
+        - name: foodops
+          image: 859679100707.dkr.ecr.us-east-1.amazonaws.com/foodops-v2:latest
+          ports:
+            - containerPort: 5000
